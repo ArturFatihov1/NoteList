@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.notelist.constants.ConstantsApp
 
-@Database(entities = [User::class], version = 1)
+@Database(entities = [User::class], version = 1, exportSchema = false)
 abstract class UserDatabase : RoomDatabase() {
     abstract val userDAO: UserDAO
 
@@ -22,8 +22,7 @@ abstract class UserDatabase : RoomDatabase() {
                         context.applicationContext,
                         UserDatabase::class.java,
                         ConstantsApp.USER_DATA_DATABASE
-                    ).fallbackToDestructiveMigration()
-                        .build()
+                    ).fallbackToDestructiveMigration().build()
                 }
                 return instance
             }
