@@ -9,6 +9,11 @@ import kotlinx.coroutines.launch
 class UserViewModel(private val dao: UserDAO) : ViewModel() {
     val users = dao.getAllUsers()
 
+    fun delete(user: User){
+        viewModelScope.launch {
+            dao.delete(user)
+        }
+    }
 
     fun insert(user: User) {
         viewModelScope.launch {

@@ -9,11 +9,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AddFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingStart="10dp"
         android:paddingEnd="10dp">
+
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatActButtonAddNote"
@@ -35,19 +38,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:background="@null"
             android:ems="10"
             android:hint="Title"
-            android:lineSpacingMultiplier="1.8"
             android:inputType="textPersonName"
+            android:lineSpacingMultiplier="1.8"
             android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/include2" />
 
         <EditText
             android:id="@+id/edNote"
