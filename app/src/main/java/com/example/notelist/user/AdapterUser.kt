@@ -7,7 +7,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintSet.Layout
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notelist.MainFragmentDirections
 import com.example.notelist.R
 import com.example.notelist.database.User
 
@@ -25,9 +27,16 @@ class AdapterUser(private val list: List<User>) : RecyclerView.Adapter<AdapterUs
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tv_title.text = list[position].title
-        holder.tv_note.text = list[position].note
+        val data = list[position]
+        holder.tv_title.text = data.title
+        holder.tv_note.text = data.note
+
         holder.note_card.setCardBackgroundColor(holder.itemView.resources.getColor(getRandomColorCard(),null))
+
+        holder.itemView.rootView.setOnClickListener {
+            val action = MainFragmentDirections.actionMainFragmentToEditFragment(data)
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

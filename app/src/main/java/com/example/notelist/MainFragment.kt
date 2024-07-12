@@ -39,7 +39,7 @@ class MainFragment : Fragment() {
     private fun init() {
         binding.floatActButton.setOnClickListener {
             val controller = findNavController()
-            controller.navigate(R.id.action_mainFragment_to_editFragment)
+            controller.navigate(R.id.action_mainFragment_to_addFragment)
         }
 
 //        binding.btnClear.setOnClickListener {

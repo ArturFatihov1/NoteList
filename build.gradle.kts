@@ -4,3 +4,13 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android) apply false
     kotlin("kapt") version "1.9.22"
 }
+
+
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        classpath(libs.androidx.navigation.safe.args.gradle.plugin)
+    }
+}
