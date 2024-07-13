@@ -22,8 +22,9 @@ abstract class UserDatabase : RoomDatabase() {
                         context.applicationContext,
                         UserDatabase::class.java,
                         ConstantsApp.USER_DATA_DATABASE
-                    ).fallbackToDestructiveMigration().build()
+                    ).build()
                 }
+                INSTANCE = instance
                 return instance
             }
         }

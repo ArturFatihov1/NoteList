@@ -32,15 +32,7 @@ class EditFragment : Fragment() {
 
         initViewModel()
         initUi()
-        binding.include2.delete.setOnClickListener{
-            val user = User(
-                oldNotes.data.userId,
-                binding.updateTitle.text.toString(),
-                binding.updateNote.text.toString())
-            userViewModel.delete(user)
-            val controller = findNavController()
-            controller.navigate(R.id.action_editFragment_to_mainFragment)
-        }
+
 
         return binding.root
     }
@@ -52,6 +44,19 @@ class EditFragment : Fragment() {
                 binding.updateTitle.text.toString(),
                 binding.updateNote.text.toString())
             userViewModel.update(user)
+            val controller = findNavController()
+            controller.navigate(R.id.action_editFragment_to_mainFragment)
+        }
+        binding.includeEdit.delete.setOnClickListener{
+            val user = User(
+                oldNotes.data.userId,
+                binding.updateTitle.text.toString(),
+                binding.updateNote.text.toString())
+            userViewModel.delete(user)
+            val controller = findNavController()
+            controller.navigate(R.id.action_editFragment_to_mainFragment)
+        }
+        binding.includeEdit.backArrow.setOnClickListener{
             val controller = findNavController()
             controller.navigate(R.id.action_editFragment_to_mainFragment)
         }

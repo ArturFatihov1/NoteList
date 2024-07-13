@@ -19,9 +19,6 @@ interface UserDAO {
     @Update
     suspend fun update(user: User)
 
-    @Query("DELETE FROM ${ConstantsApp.TABLE_NAME}")
-    suspend fun deleteAll()
-
     @Query("SELECT * FROM ${ConstantsApp.TABLE_NAME}")
     fun getAllUsers(): LiveData<List<User>>
 }

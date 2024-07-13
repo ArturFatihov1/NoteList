@@ -16,21 +16,9 @@
         android:paddingStart="10dp"
         android:paddingEnd="10dp">
 
-
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatActButtonAddNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/black"
-            android:focusable="true"
-            app:tint="@color/white"
-            app:shapeAppearanceOverlay="@style/fab_corner"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:clickable="true"
-            android:src="@drawable/baseline_check_24"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <include
+            android:id="@+id/includeAdd"
+            layout="@layout/toolbar_add"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <EditText
@@ -50,7 +38,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include2" />
+            app:layout_constraintTop_toBottomOf="@+id/includeAdd" />
 
         <EditText
             android:id="@+id/edNote"
@@ -70,6 +58,21 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edTitle" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatActButtonAddNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:focusable="true"
+            app:tint="@color/white"
+            app:shapeAppearanceOverlay="@style/fab_corner"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:src="@drawable/baseline_check_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

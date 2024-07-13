@@ -1,19 +1,26 @@
 package com.example.notelist.user
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintSet.Layout
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notelist.MainFragmentDirections
 import com.example.notelist.R
 import com.example.notelist.database.User
 
-class AdapterUser(private val list: List<User>) : RecyclerView.Adapter<AdapterUser.ViewHolder>() {
+class AdapterUser(val context: Context, private var list: List<User>) :
+    RecyclerView.Adapter<AdapterUser.ViewHolder>() {
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun filtering(newFilteredList: ArrayList<User>) {
+        list = newFilteredList
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tv_title: TextView = itemView.findViewById(R.id.tv_title)
@@ -31,7 +38,7 @@ class AdapterUser(private val list: List<User>) : RecyclerView.Adapter<AdapterUs
         holder.tv_title.text = data.title
         holder.tv_note.text = data.note
 
-        holder.note_card.setCardBackgroundColor(holder.itemView.resources.getColor(getRandomColorCard(),null))
+     holder.note_card.setCardBackgroundColor(holder.itemView.resources.getColor(getRandomColorCard(),null))
 
         holder.itemView.rootView.setOnClickListener {
             val action = MainFragmentDirections.actionMainFragmentToEditFragment(data)

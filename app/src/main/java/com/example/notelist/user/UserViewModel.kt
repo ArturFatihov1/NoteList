@@ -27,9 +27,4 @@ class UserViewModel(private val dao: UserDAO) : ViewModel() {
         }
     }
 
-    fun clearAll() {
-        viewModelScope.launch {
-            dao.deleteAll()
-        }
-    }
 }

@@ -1,0 +1,82 @@
+Index: app/src/main/res/layout/fragment_add.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_add.xml b/app/src/main/res/layout/fragment_add.xml
+--- a/app/src/main/res/layout/fragment_add.xml	
++++ b/app/src/main/res/layout/fragment_add.xml	(date 1720888632002)
+@@ -9,10 +9,6 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     tools:context=".AddFragment">
+ 
+-    <include
+-        android:id="@+id/includeAdd"
+-        layout="@layout/toolbar_add"
+-        app:layout_constraintEnd_toEndOf="parent"/>
+ 
+     <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_width="match_parent"
+@@ -20,12 +16,29 @@
+         android:paddingStart="10dp"
+         android:paddingEnd="10dp">
+ 
++
++
++        <com.google.android.material.floatingactionbutton.FloatingActionButton
++            android:id="@+id/floatActButtonAddNote"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:backgroundTint="@color/black"
++            android:focusable="true"
++            app:tint="@color/white"
++            app:shapeAppearanceOverlay="@style/fab_corner"
++            android:layout_marginEnd="20dp"
++            android:layout_marginBottom="20dp"
++            android:clickable="true"
++            android:src="@drawable/baseline_check_24"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toEndOf="parent" />
++
+         <EditText
+             android:id="@+id/edTitle"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="16dp"
+-            android:layout_marginTop="68dp"
++            android:layout_marginTop="16dp"
+             android:layout_marginEnd="16dp"
+             android:background="@null"
+             android:ems="10"
+@@ -37,7 +50,7 @@
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintHorizontal_bias="0.0"
+             app:layout_constraintStart_toStartOf="parent"
+-            app:layout_constraintTop_toTopOf="parent" />
++            app:layout_constraintTop_toBottomOf="@+id/include2" />
+ 
+         <EditText
+             android:id="@+id/edNote"
+@@ -59,21 +72,6 @@
+             app:layout_constraintTop_toBottomOf="@+id/edTitle"
+             app:layout_constraintVertical_bias="1.0" />
+ 
+-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+-            android:id="@+id/floatActButtonAddNote"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:backgroundTint="@color/black"
+-            android:focusable="true"
+-            app:tint="@color/white"
+-            app:shapeAppearanceOverlay="@style/fab_corner"
+-            android:layout_marginEnd="20dp"
+-            android:layout_marginBottom="20dp"
+-            android:clickable="true"
+-            android:src="@drawable/baseline_check_24"
+-            app:layout_constraintBottom_toBottomOf="parent"
+-            app:layout_constraintEnd_toEndOf="parent" />
+-
+ 
+     </androidx.constraintlayout.widget.ConstraintLayout>
+ </androidx.cardview.widget.CardView>
+\ No newline at end of file

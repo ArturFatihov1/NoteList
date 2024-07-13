@@ -38,6 +38,10 @@ class AddFragment : Fragment() {
             val controller = findNavController()
             controller.navigate(R.id.action_addFragment_to_mainFragment)
         }
+        binding.includeAdd.backArrow.setOnClickListener {
+            val controller = findNavController()
+            controller.navigate(R.id.action_addFragment_to_mainFragment)
+        }
     }
 
 
