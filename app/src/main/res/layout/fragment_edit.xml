@@ -7,7 +7,7 @@
     android:layout_margin="10dp"
     app:cardCornerRadius="28dp"
     app:cardElevation="8dp"
-    tools:context=".EditFragment">
+    tools:context=".fragments.EditFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +18,7 @@
 
         <include
             android:id="@+id/includeEdit"
-            layout="@layout/toolbar_edit_add"
+            layout="@layout/toolbar_back_delete"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <EditText

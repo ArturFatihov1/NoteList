@@ -1,4 +1,4 @@
-package com.example.notelist
+package com.example.notelist.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.notelist.R
 import com.example.notelist.database.User
 import com.example.notelist.database.UserDatabase
 import com.example.notelist.databinding.FragmentMainBinding

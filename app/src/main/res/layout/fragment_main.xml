@@ -8,7 +8,7 @@
     android:paddingStart="22dp"
     android:paddingEnd="22dp"
     android:paddingBottom="22dp"
-    tools:context=".MainFragment">
+    tools:context=".fragments.MainFragment">
 
         <include
             android:id="@+id/include"

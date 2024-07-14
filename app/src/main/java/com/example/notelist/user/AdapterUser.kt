@@ -9,9 +9,9 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notelist.MainFragmentDirections
 import com.example.notelist.R
 import com.example.notelist.database.User
+import com.example.notelist.fragments.MainFragmentDirections
 
 class AdapterUser(val context: Context, private var list: List<User>) :
     RecyclerView.Adapter<AdapterUser.ViewHolder>() {
