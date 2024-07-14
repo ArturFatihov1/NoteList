@@ -20,13 +20,6 @@ Icon App
 
 ![IconApp](https://github.com/user-attachments/assets/e47118e9-ae51-47f5-a83e-ffc94f2797bc)
 
-When I started making this project, I named some classes inaccurately, At the end I tried to change the class names to more understandable ones, but so far I haven't been able to do that
-
-EXAMPLE
-
-User -> Note
-
-UserDatabase -> NoteDatabase
 
 
 
