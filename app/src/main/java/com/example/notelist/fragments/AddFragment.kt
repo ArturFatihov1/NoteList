@@ -32,16 +32,19 @@ class AddFragment : Fragment() {
     }
 
     private fun init() {
+
         binding.floatActButtonAddNote.setOnClickListener {
             val user = User(null, binding.edTitle.text.toString(), binding.edNote.text.toString())
             userViewModel.insert(user)
             val controller = findNavController()
             controller.navigate(R.id.action_addFragment_to_mainFragment)
         }
+
         binding.includeAdd.backArrow.setOnClickListener {
             val controller = findNavController()
             controller.navigate(R.id.action_addFragment_to_mainFragment)
         }
+
     }
 
 
