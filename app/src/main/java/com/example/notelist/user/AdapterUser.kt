@@ -51,15 +51,15 @@ class AdapterUser(val context: Context, private var list: List<User>) :
     }
 
     private fun getRandomColorCard():Int {
-        val list = ArrayList<Int>()
+        val colorList = ArrayList<Int>()
         val randomNumber = (0..5).random()
-        list.add(R.color.colorNote1)
-        list.add(R.color.colorNote2)
-        list.add(R.color.colorNote3)
-        list.add(R.color.colorNote4)
-        list.add(R.color.colorNote5)
-        list.add(R.color.colorNote6)
-        return list[randomNumber]
+        colorList.add(R.color.colorNote1)
+        colorList.add(R.color.colorNote2)
+        colorList.add(R.color.colorNote3)
+        colorList.add(R.color.colorNote4)
+        colorList.add(R.color.colorNote5)
+        colorList.add(R.color.colorNote6)
+        return colorList[randomNumber]
     }
 
 }
