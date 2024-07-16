@@ -39,20 +39,19 @@ class EditFragment : Fragment() {
     }
 
     private fun initUi() {
+
+        val user = User(
+            oldNotes.data.userId,
+            binding.updateTitle.text.toString(),
+            binding.updateNote.text.toString()
+        )
+
         binding.floatActButtonUpdateNote.setOnClickListener {
-            val user = User(
-                oldNotes.data.userId,
-                binding.updateTitle.text.toString(),
-                binding.updateNote.text.toString())
             userViewModel.update(user)
             val controller = findNavController()
             controller.navigate(R.id.action_editFragment_to_mainFragment)
         }
         binding.includeEdit.delete.setOnClickListener{
-            val user = User(
-                oldNotes.data.userId,
-                binding.updateTitle.text.toString(),
-                binding.updateNote.text.toString())
             userViewModel.delete(user)
             val controller = findNavController()
             controller.navigate(R.id.action_editFragment_to_mainFragment)

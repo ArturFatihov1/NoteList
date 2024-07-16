@@ -20,7 +20,7 @@ class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
     private lateinit var userViewModel: UserViewModel
     private lateinit var adapter: AdapterUser
-    var oldMyNotes = arrayListOf<User>()
+    private var oldMyNotes = arrayListOf<User>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,11 +63,12 @@ class MainFragment : Fragment() {
     private fun notesFiltering(p0: String?) {
         val newFilteredList = arrayListOf<User>()
 
-        for(i in oldMyNotes){
-            if(i.title.contains(p0!!) || i.note.contains(p0)){
-                newFilteredList.add(i)
+        oldMyNotes.forEach {
+            if( it.title.contains(p0.toString()) || it.note.contains(p0.toString()) ){
+                newFilteredList.add(it)
             }
         }
+
         adapter.filtering(newFilteredList)
     }
 
@@ -77,12 +78,6 @@ class MainFragment : Fragment() {
             adapter = AdapterUser(requireContext(),userList)
             binding.recyclerViewMain.adapter = adapter
 
-        }
-    }
-
-    private fun setDataToRecyclerView(userList: ArrayList<User>) {
-        binding.recyclerViewMain.apply {
-            adapter = AdapterUser(requireContext(),userList)
         }
     }
 
