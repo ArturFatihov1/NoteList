@@ -46,6 +46,7 @@ class MainFragment : Fragment() {
             val controller = findNavController()
             controller.navigate(R.id.action_mainFragment_to_addFragment)
         }
+
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 return false
