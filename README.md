@@ -3,7 +3,7 @@ Application notes
 
 Stack
 * Kotlin
-* XML
+* View
 * Room
 * Navigation Component
 * Coroutines
