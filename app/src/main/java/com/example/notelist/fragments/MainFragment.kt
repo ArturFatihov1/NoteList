@@ -26,7 +26,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMainBinding.inflate(layoutInflater,container,false)
+        binding = FragmentMainBinding.inflate(layoutInflater, container, false)
 
         initViewModel()
         init()
@@ -42,41 +42,39 @@ class MainFragment : Fragment() {
     }
 
     private fun init() {
+        val controller = findNavController()
+
         binding.floatActButton.setOnClickListener {
-            val controller = findNavController()
             controller.navigate(R.id.action_mainFragment_to_addFragment)
         }
 
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(p0: String?): Boolean {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(text: String?): Boolean {
                 return false
             }
 
-            override fun onQueryTextChange(p0: String?): Boolean {
-                notesFiltering(p0)
+            override fun onQueryTextChange(text: String?): Boolean {
+                notesFiltering(text)
                 return true
             }
-
         })
-
     }
 
-    private fun notesFiltering(p0: String?) {
+    private fun notesFiltering(text: String?) {
         val newFilteredList = arrayListOf<User>()
 
         oldMyNotes.forEach {
-            if( it.title.contains(p0.toString()) || it.note.contains(p0.toString()) ){
+            if (it.title.contains(text.toString()) || it.note.contains(text.toString())) {
                 newFilteredList.add(it)
             }
         }
-
         adapter.filtering(newFilteredList)
     }
 
     private fun showUsersList() {
         userViewModel.users.observe(viewLifecycleOwner) { userList ->
             oldMyNotes = userList as ArrayList<User>
-            adapter = AdapterUser(requireContext(),userList)
+            adapter = AdapterUser(requireContext(), userList)
             binding.recyclerViewMain.adapter = adapter
 
         }

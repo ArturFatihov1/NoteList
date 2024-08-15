@@ -23,9 +23,9 @@ class AdapterUser(val context: Context, private var list: List<User>) :
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tv_title: TextView = itemView.findViewById(R.id.tv_title)
-        val tv_note: TextView = itemView.findViewById(R.id.tv_note)
-        val note_card: CardView = itemView.findViewById(R.id.note_card)
+        val tvTitle: TextView = itemView.findViewById(R.id.tv_title)
+        val tvNote: TextView = itemView.findViewById(R.id.tv_note)
+        val noteCard: CardView = itemView.findViewById(R.id.note_card)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,10 +35,10 @@ class AdapterUser(val context: Context, private var list: List<User>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = list[position]
-        holder.tv_title.text = data.title
-        holder.tv_note.text = data.note
+        holder.tvTitle.text = data.title
+        holder.tvNote.text = data.note
 
-     holder.note_card.setCardBackgroundColor(holder.itemView.resources.getColor(getRandomColorCard(),null))
+     holder.noteCard.setCardBackgroundColor(holder.itemView.resources.getColor(getRandomColorCard(),null))
 
         holder.itemView.rootView.setOnClickListener {
             val action = MainFragmentDirections.actionMainFragmentToEditFragment(data)
