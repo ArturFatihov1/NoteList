@@ -66,4 +66,8 @@ class EditFragment : Fragment() {
         val viewModelFactory = UserViewModelFactory(dao)
         userViewModel = ViewModelProvider(this, viewModelFactory)[UserViewModel::class.java]
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 40765c2154c8332b134076b7d952567fbcbc7f0a
 }
