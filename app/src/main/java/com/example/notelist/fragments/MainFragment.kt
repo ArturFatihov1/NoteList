@@ -1,11 +1,11 @@
 package com.example.notelist.fragments
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.notelist.R
@@ -26,7 +26,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMainBinding.inflate(layoutInflater, container, false)
+        binding = FragmentMainBinding.inflate(layoutInflater,container,false)
 
         initViewModel()
         init()
@@ -47,7 +47,7 @@ class MainFragment : Fragment() {
             controller.navigate(R.id.action_mainFragment_to_addFragment)
         }
 
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 return false
             }
@@ -65,7 +65,7 @@ class MainFragment : Fragment() {
         val newFilteredList = arrayListOf<User>()
 
         oldMyNotes.forEach {
-            if (it.title.contains(p0.toString()) || it.note.contains(p0.toString())) {
+            if( it.title.contains(p0.toString()) || it.note.contains(p0.toString()) ){
                 newFilteredList.add(it)
             }
         }
@@ -76,7 +76,7 @@ class MainFragment : Fragment() {
     private fun showUsersList() {
         userViewModel.users.observe(viewLifecycleOwner) { userList ->
             oldMyNotes = userList as ArrayList<User>
-            adapter = AdapterUser(requireContext(), userList)
+            adapter = AdapterUser(requireContext(),userList)
             binding.recyclerViewMain.adapter = adapter
 
         }

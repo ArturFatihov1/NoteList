@@ -16,13 +16,13 @@ class UserViewModel(private val dao: UserDAO) : ViewModel() {
         }
     }
 
-    fun delete(user: User) {
+    fun delete(user: User){
         viewModelScope.launch(Dispatchers.IO) {
             dao.delete(user)
         }
     }
 
-    fun update(user: User) {
+    fun update(user: User){
         viewModelScope.launch(Dispatchers.IO) {
             dao.update(user)
         }

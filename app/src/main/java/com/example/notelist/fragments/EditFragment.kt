@@ -1,10 +1,10 @@
 package com.example.notelist.fragments
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -27,6 +27,7 @@ class EditFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentEditBinding.inflate(layoutInflater, container, false)
+
         binding.updateTitle.setText(oldNotes.data.title)
         binding.updateNote.setText(oldNotes.data.note)
 

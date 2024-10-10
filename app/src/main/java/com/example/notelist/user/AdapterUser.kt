@@ -13,7 +13,7 @@ import com.example.notelist.R
 import com.example.notelist.database.User
 import com.example.notelist.fragments.MainFragmentDirections
 
-class AdapterUser(private val context: Context, private var list: List<User>) :
+class AdapterUser(val context: Context, private var list: List<User>) :
     RecyclerView.Adapter<AdapterUser.ViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
@@ -23,27 +23,22 @@ class AdapterUser(private val context: Context, private var list: List<User>) :
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textViewTitle: TextView = itemView.findViewById(R.id.tv_title)
-        val textViewNote: TextView = itemView.findViewById(R.id.tv_note)
-        val noteCard: CardView = itemView.findViewById(R.id.note_card)
+        val tv_title: TextView = itemView.findViewById(R.id.tv_title)
+        val tv_note: TextView = itemView.findViewById(R.id.tv_note)
+        val note_card: CardView = itemView.findViewById(R.id.note_card)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.content_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.content_item, parent,false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = list[position]
-        holder.textViewTitle.text = data.title
-        holder.textViewNote.text = data.note
+        holder.tv_title.text = data.title
+        holder.tv_note.text = data.note
 
-        holder.noteCard.setCardBackgroundColor(
-            holder.itemView.resources.getColor(
-                getRandomColorCard(),
-                null
-            )
-        )
+     holder.note_card.setCardBackgroundColor(holder.itemView.resources.getColor(getRandomColorCard(),null))
 
         holder.itemView.rootView.setOnClickListener {
             val action = MainFragmentDirections.actionMainFragmentToEditFragment(data)
@@ -55,7 +50,7 @@ class AdapterUser(private val context: Context, private var list: List<User>) :
         return list.size
     }
 
-    private fun getRandomColorCard(): Int {
+    private fun getRandomColorCard():Int {
         val colorList = ArrayList<Int>()
         val randomNumber = (0..5).random()
         colorList.add(R.color.colorNote1)
