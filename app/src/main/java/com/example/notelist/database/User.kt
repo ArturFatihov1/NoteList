@@ -21,4 +21,4 @@ data class User(
     @ColumnInfo(name = ConstantsApp.USER_NOTE)
     var note: String
 
-): Parcelable
+) : Parcelable

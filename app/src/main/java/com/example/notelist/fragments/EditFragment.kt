@@ -19,54 +19,51 @@ import com.example.notelist.user.UserViewModelFactory
 class EditFragment : Fragment() {
     private lateinit var binding: FragmentEditBinding
     private lateinit var userViewModel: UserViewModel
-    val oldNotes by navArgs<EditFragmentArgs>()
+    private val oldNotes by navArgs<EditFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         binding = FragmentEditBinding.inflate(layoutInflater, container, false)
-
         binding.updateTitle.setText(oldNotes.data.title)
         binding.updateNote.setText(oldNotes.data.note)
 
         initViewModel()
         initUi()
 
-
         return binding.root
     }
 
     private fun initUi() {
+        val controller = findNavController()
 
-        val user = User(
+        binding.floatActButtonUpdateNote.setOnClickListener {
+            val user = createUser()
+            userViewModel.update(user)
+            controller.navigate(R.id.action_editFragment_to_mainFragment)
+        }
+        binding.includeEdit.delete.setOnClickListener {
+            val user = createUser()
+            userViewModel.delete(user)
+            controller.navigate(R.id.action_editFragment_to_mainFragment)
+        }
+        binding.includeEdit.backArrow.setOnClickListener {
+            controller.navigate(R.id.action_editFragment_to_mainFragment)
+        }
+    }
+
+    private fun createUser(): User {
+        return User(
             oldNotes.data.userId,
             binding.updateTitle.text.toString(),
             binding.updateNote.text.toString()
         )
-
-        binding.floatActButtonUpdateNote.setOnClickListener {
-            userViewModel.update(user)
-            val controller = findNavController()
-            controller.navigate(R.id.action_editFragment_to_mainFragment)
-        }
-        binding.includeEdit.delete.setOnClickListener{
-            userViewModel.delete(user)
-            val controller = findNavController()
-            controller.navigate(R.id.action_editFragment_to_mainFragment)
-        }
-        binding.includeEdit.backArrow.setOnClickListener{
-            val controller = findNavController()
-            controller.navigate(R.id.action_editFragment_to_mainFragment)
-        }
     }
 
     private fun initViewModel() {
         val dao = UserDatabase.getInstance(requireContext()).userDAO
         val viewModelFactory = UserViewModelFactory(dao)
-        userViewModel = ViewModelProvider(this, viewModelFactory).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this, viewModelFactory)[UserViewModel::class.java]
     }
-
-
 }

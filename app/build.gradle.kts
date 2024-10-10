@@ -3,9 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
-    id ("kotlin-parcelize")
-
-
+    id("kotlin-parcelize")
 }
 
 android {
@@ -44,17 +42,18 @@ android {
 }
 
 dependencies {
+    // Navigation Component
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-
+    // Coroutine - lifecycle
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.lifecycle.livedata.ktx)
-    kapt(libs.androidx.room.compiler)
-
+    // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     annotationProcessor(libs.androidx.room.compiler)
-
+    kapt(libs.androidx.room.compiler)
+    // Default
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

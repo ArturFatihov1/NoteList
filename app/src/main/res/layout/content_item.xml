@@ -1,41 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/note_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="16dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    app:cardCornerRadius="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp"
         android:paddingTop="18dp"
+        android:paddingEnd="16dp"
         android:paddingBottom="18dp">
 
         <TextView
             android:id="@+id/tv_title"
-            android:text="Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:paddingBottom="4dp"
+            android:text="@string/title"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Note"
-            android:textSize="14sp"
             android:ellipsize="none"
-            android:maxLines="10" />
+            android:maxLines="10"
+            android:text="@string/note"
+            android:textSize="14sp" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

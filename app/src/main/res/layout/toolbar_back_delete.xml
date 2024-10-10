@@ -7,7 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginRight="20dp">
+        android:layout_marginEnd="20dp">
 
         <ImageView
             android:id="@+id/back_arrow"
