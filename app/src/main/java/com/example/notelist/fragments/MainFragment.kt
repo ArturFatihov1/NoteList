@@ -43,17 +43,14 @@ class MainFragment : Fragment() {
 
     private fun init() {
         val controller = findNavController()
-<<<<<<< HEAD
         binding.floatActButton.setOnClickListener {
             controller.navigate(R.id.action_mainFragment_to_addFragment)
         }
-=======
 
         binding.floatActButton.setOnClickListener {
             controller.navigate(R.id.action_mainFragment_to_addFragment)
         }
 
->>>>>>> 40765c2154c8332b134076b7d952567fbcbc7f0a
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(text: String?): Boolean {
                 return false

@@ -32,10 +32,7 @@ class AddFragment : Fragment() {
 
     private fun init() {
         val controller = findNavController()
-<<<<<<< HEAD
-=======
 
->>>>>>> 40765c2154c8332b134076b7d952567fbcbc7f0a
         binding.floatActButtonAddNote.setOnClickListener {
             val user = User(null, binding.edTitle.text.toString(), binding.edNote.text.toString())
             userViewModel.insert(user)
@@ -51,8 +48,5 @@ class AddFragment : Fragment() {
         val viewModelFactory = UserViewModelFactory(dao)
         userViewModel = ViewModelProvider(this, viewModelFactory).get(UserViewModel::class.java)
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 40765c2154c8332b134076b7d952567fbcbc7f0a
 }
