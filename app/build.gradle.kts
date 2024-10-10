@@ -3,9 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
-    id ("kotlin-parcelize")
-
-
+    id("kotlin-parcelize")
 }
 
 android {
@@ -14,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.notelist"
-        minSdk = 24
+        minSdk = 28
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -44,16 +42,18 @@ android {
 }
 
 dependencies {
+    // Navigation Component
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.lifecycle.livedata.ktx)
-    kapt(libs.androidx.room.compiler)
-
+    implementation(libs.car.ui.lib)
+    // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     annotationProcessor(libs.androidx.room.compiler)
+    kapt(libs.androidx.room.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

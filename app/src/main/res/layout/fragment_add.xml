@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
     app:cardCornerRadius="28dp"
     app:cardElevation="8dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.AddFragment">
 
 
@@ -26,14 +26,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:background="@null"
             android:ems="10"
-            android:hint="Title"
+            android:hint="@string/title_hint"
             android:inputType="textPersonName"
             android:lineSpacingMultiplier="1.8"
-            android:textSize="26sp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -50,9 +52,9 @@
             android:background="@null"
             android:ems="10"
             android:gravity="top"
-            android:hint="Start Typing"
-            android:lineSpacingMultiplier="1.8"
+            android:hint="@string/note_text_hint"
             android:inputType="textMultiLine"
+            android:lineSpacingMultiplier="1.8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -63,16 +65,17 @@
             android:id="@+id/floatActButtonAddNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/black"
-            android:focusable="true"
-            app:tint="@color/white"
-            app:shapeAppearanceOverlay="@style/fab_corner"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/black"
             android:clickable="true"
+            android:focusable="true"
+            android:importantForAccessibility="no"
             android:src="@drawable/baseline_check_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:shapeAppearanceOverlay="@style/fab_corner"
+            app:tint="@color/white" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

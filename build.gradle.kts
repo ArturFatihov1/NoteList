@@ -5,7 +5,6 @@ plugins {
     kotlin("kapt") version "1.9.22"
 }
 
-
 buildscript {
     repositories {
         google()
