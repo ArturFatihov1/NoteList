@@ -28,11 +28,14 @@ class MainFragment : Fragment() {
     ): View {
         binding = FragmentMainBinding.inflate(layoutInflater, container, false)
 
-        initViewModel()
-        init()
-        showUsersList()
-
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initUi()
+        initViewModel()
+        showUsersList()
     }
 
     private fun initViewModel() {
@@ -41,7 +44,7 @@ class MainFragment : Fragment() {
         userViewModel = ViewModelProvider(this, viewModelFactory).get(UserViewModel::class.java)
     }
 
-    private fun init() {
+    private fun initUi() {
         val controller = findNavController()
         binding.floatActButton.setOnClickListener {
             controller.navigate(R.id.action_mainFragment_to_addFragment)

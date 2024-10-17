@@ -23,14 +23,16 @@ class AddFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentAddBinding.inflate(layoutInflater, container, false)
-
-        initViewModel()
-        init()
-
         return binding.root
     }
 
-    private fun init() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initUi()
+        initViewModel()
+    }
+
+    private fun initUi() {
         val controller = findNavController()
 
         binding.floatActButtonAddNote.setOnClickListener {

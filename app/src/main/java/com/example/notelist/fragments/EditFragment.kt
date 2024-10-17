@@ -29,10 +29,13 @@ class EditFragment : Fragment() {
         binding.updateTitle.setText(oldNotes.data.title)
         binding.updateNote.setText(oldNotes.data.note)
 
-        initViewModel()
-        initUi()
-
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initUi()
+        initViewModel()
     }
 
     private fun initUi() {
